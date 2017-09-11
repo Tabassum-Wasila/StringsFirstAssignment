@@ -1,17 +1,17 @@
 
 public class Part2{
 
-     public String findSimpleGene(String dna)
+     public String findSimpleGene(String dna, String startCodon, String stopCodon)
      {
             String result = "";
-            int startIndex = dna.indexOf("ATG");
+            int startIndex = dna.indexOf(startCodon);
             
             if(startIndex == -1)
             {
             return result;
             }
             
-            int stopIndex = dna.indexOf("TAA", startIndex + 3);
+            int stopIndex = dna.indexOf(stopCodon, startIndex + 3);
             
             while(stopIndex != -1)
             {
@@ -22,7 +22,7 @@ public class Part2{
                     }
                     else
                     {
-                        stopIndex = dna.indexOf("TAA", stopIndex + 1);
+                        stopIndex = dna.indexOf(stopCodon, stopIndex + 1);
                     }
             }
             
@@ -32,27 +32,27 @@ public class Part2{
      {
          //No start codon
          String dna = "ATTCAGTGCTAATGC";
-         String gene = findSimpleGene(dna);
+         String gene = findSimpleGene(dna, "ATG", "TAA");
          System.out.println("\nDNA Strand: " + dna + "\nGene: " + gene);
          
          //No stop codon
          dna = "ATGCAGTGCTACTGC";
-         gene = findSimpleGene(dna);
+         gene = findSimpleGene(dna, "ATG", "TAA");
          System.out.println("\nDNA Strand: " + dna + "\nGene: " + gene);
          
          //Distance between start and stop codon is not divisible by 3
          dna = "ATGCAGTGCTTAATGC";
-         gene = findSimpleGene(dna);
+         gene = findSimpleGene(dna, "ATG", "TAA");
          System.out.println("\nDNA Strand: " + dna + "\nGene: " + gene);
          
          //Distance between start and stop codon is divisible by 3
          dna = "ATGCAGTGCTAATCG";
-         gene = findSimpleGene(dna);
+         gene = findSimpleGene(dna, "ATG", "TAA");
          System.out.println("\nDNA Strand: " + dna + "\nGene: " + gene);
          
          //One start codon and two stop codons
          dna = "ATGCAGTGCTAATAA";
-         gene = findSimpleGene(dna);
+         gene = findSimpleGene(dna, "ATG", "TAA");
          System.out.println("\nDNA Strand: " + dna + "\nGene: " + gene);
      }
 }
