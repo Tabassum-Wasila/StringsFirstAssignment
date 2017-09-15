@@ -17,6 +17,21 @@ public class Part3
         
         return false;
     }
+    
+    public String lastPart(String stringa, String stringb)
+    {
+        String result = "";
+        int index = stringb.indexOf(stringa);
+        if(index == -1)
+        {
+            result = stringb;
+        }
+        else
+        {
+            result = stringb.substring(index + stringa.length(), stringb.length() );
+        }
+        return result;
+    }
     public void testing()
     {
         System.out.println("Stringa = by \nStringb = A story by Abby Long");
