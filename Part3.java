@@ -66,5 +66,14 @@ public class Part3
         {
             System.out.println("twoOccurrences return value = false");
         }
+        
+        String result = lastPart("by", "A story by Abby Long");
+        System.out.println("The part of the string after by in A story by Abby Long is " + result);
+        
+        result = lastPart("a", "banana");
+        System.out.println("The part of the string after a in banana is " + result);
+        
+        result = lastPart("zoo", "forest");
+        System.out.println("The part of the string after zoo in forest is " + result);
     }
 }
