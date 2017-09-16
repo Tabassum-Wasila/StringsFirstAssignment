@@ -16,7 +16,7 @@ public class Part4{
                 int stop = line.indexOf("\"", find + 1);
                 int start = line.lastIndexOf("\"", find);
                 System.out.println(line.substring(start + 1, stop));
-            }
+            } 
             
         }
     }
